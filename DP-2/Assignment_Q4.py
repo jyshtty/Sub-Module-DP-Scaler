@@ -14,9 +14,11 @@ class Solution:
                     c = max(c, dp[j])
             dp[i] = c + 1
 
-        return dp[len(A) - 1]
+        return dp[len(A) - 1], dp
+
+
 
 if __name__ == "__main__":
-    A = [ 1, 3, 5 ]
+    A = [ 14, 24, 18, 46, 55, 53, 82, 18, 101, 20, 78, 35, 68, 9, 16, 93, 101, 85, 81, 28, 78 ]
     obj = Solution()
     print(obj.lis(A))
