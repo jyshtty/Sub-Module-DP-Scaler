@@ -34,3 +34,26 @@ class Solution:
                 if j >= B[i - 1]:
                     dp[i][j] = max(dp[i][j], dp[i - 1][j - B[i - 1]] + A[i - 1]) # pick - index is always i-1 for B and A. For ex last element in weight array is B[i-1]
         return dp[len(B)][C]
+    
+    
+ # unbounded Knapsack
+class Solution:
+    # @param A : list of integers
+    # @param B : list of integers
+    # @param C : integer
+    # @return an integer
+    def solve(self, A, B, C):
+        dp = [[0 for j in range(C + 1)] for i in range(len(B) + 1)]
+
+        for i in range(1, len(B) + 1):
+            for j in range(1, C + 1):
+                if i == 0: # no items
+                    dp[i][j] = 0
+                if j == 0: # knapsack threshold weight is 0
+                dp[i][j] = dp[i - 1][j]. # no pick
+                if j >= B[i - 1]:
+                    dp[i][j] = max(dp[i][j], dp[i][j - B[i - 1]] + A[i - 1]) # pick - index is always i-1 for B and A. For ex last element in weight array is B[i-1]
+        return dp[len(B)][C]
+
+
+
