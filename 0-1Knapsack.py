@@ -37,6 +37,8 @@ class Solution:
     
     
  # unbounded Knapsack
+
+
 class Solution:
     # @param A : list of integers
     # @param B : list of integers
@@ -55,5 +57,19 @@ class Solution:
                     dp[i][j] = max(dp[i][j], dp[i][j - B[i - 1]] + A[i - 1]) # pick - index is always i-1 for B and A. For ex last element in weight array is B[i-1]
         return dp[len(B)][C]
 
-
-
+# Space Optimization
+class Solution:
+    # @param A : list of integers
+    # @param B : list of integers
+    # @param C : integer
+    # @return an integer
+    def solve(self, A, B, C):
+        n = len(A)
+        dp = [0 for i in range(C+1)]
+        def knapSack(W, wt, val, n):
+            for i in range(1, n+1):
+                for w in range(W, 0, -1):
+                    if wt[i-1] <= w:
+                        dp[w] = max(dp[w], dp[w-wt[i-1]]+val[i-1])
+        knapSack(C, B, A, n)
+        return dp[-1]
