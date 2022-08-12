@@ -32,5 +32,5 @@ class Solution:
                 if j == 0: # knapsack threshold weight is 0
                 dp[i][j] = dp[i - 1][j]. # no pick
                 if j >= B[i - 1]:
-                    dp[i][j] = max(dp[i][j], dp[i - 1][j - B[i - 1]] + A[i - 1]) # pick - index is always i-1 for B and A. For ex last element in weight array is B[i-1
+                    dp[i][j] = max(dp[i][j], dp[i - 1][j - B[i - 1]] + A[i - 1]) # pick - index is always i-1 for B and A. For ex last element in weight array is B[i-1]
         return dp[len(B)][C]
