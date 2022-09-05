@@ -1,32 +1,52 @@
-class Solution:
-    # @param A : list of list of integers
-    # @return a list of list of integers
-    def solve(self, A):
-        n = len(A)
-        mat = [[0 for i in range(n)] for j in range(n)]
-        mat[0][0] = 1
+# # # write your code here...
+# # import requests
+# # url =  "https://assets.scaler.com/assets/scaler/webp/focus-image-banner-10f2febd2e4988deb4c5a5cb5f5b9f806e9c52ece336dde51dfee7c8661364f6.webp.gz"
+# # image = request.get(url)
+#
+# def foo():
+#     offset = 0
+#     ans = []
+#     for i in range(5):
+#         offset = (i * 5)
+#         temp = []
+#         for j in range(5):
+#             temp.append(offset + j)
+#         ans.append(temp)
+#     return ans
+#
+# def rotate(mat):0
+#     for i in range(len(mat)):
+#         for j in range(len(mat[0])):
+#             if j<i:
+#                 mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+#     print(mat)
+#     for i in range(len(mat)):
+#         mat[i] = mat[i][::-1]
+#
+#     return mat
+#
+# mat = foo()
+# print(mat)
+# print(rotate(mat))
+#
+#
+#
+#
 
-        def backtrack(mat, i, j):
-            if i == n - 1 and j == n - 1:
-                mat[n - 1][n - 1] = 1
-                return True
-            a = False
-            b = False
-            if A[i][j] == 1:
-                mat[i][j] = 1
-                if i + 1 < n:
-                    if backtrack(mat, i + 1, j):
-                        return True
+def deco(func):
+    def wrapper():
+        print("Good morning")
+        func()
+        print("Good evening")
+    return wrapper
 
-                if j + 1 < n:
-                    if  backtrack(mat, i, j + 1):
-                        return True
-                mat[i][j] = 0
+@deco
+def foo():
+    print("Ajay Shetty")
 
-            else:
-                return False
-        backtrack(mat, 0, 0)
-        return mat
+foo()
 
-obj = Solution()
-print(obj.solve([[1, 0], [1, 1]]))
+
+
+
+
